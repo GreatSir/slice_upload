@@ -114,26 +114,26 @@ class FileUpload
 		if (!$out = @fopen("{$filePath}_{$chunk}.parttmp", "wb")) {
 			$this->error = 'Failed to open output stream 139';
 			return false;
-		    //die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+		   
 		}
 		if (!empty($file)) {
 		    if ($file["file"]["error"] || !is_uploaded_file($file["file"]["tmp_name"])) {
 		    	$this->error = 'Failed to move uploaded file';
 		    	return false;
-		        //die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
+		    
 		    }
 
-		    // Read binary input stream and append it to temp file
+		 
 		    if (!$in = @fopen($file["file"]["tmp_name"], "rb")) {
 		    	$this->error = 'Failed to open input stream';
 		    	return false;
-		        //die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+		       
 		    }
 		} else {
 		    if (!$in = @fopen("php://input", "rb")) {
 		    	$this->error = 'Failed to open input stream';
 		    	return false;
-		        //die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+		        
 		    }
 		}
 
